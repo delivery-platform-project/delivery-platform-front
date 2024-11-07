@@ -1,0 +1,77 @@
+.login-container {
+    color: white;
+    background-image: url("https://i.pinimg.com/564x/35/0a/35/350a356423616881eb92663bb5ec3d47.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .login-wrap {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 100px;
+                margin-bottom: 70px;
+            }
+        }
+        .login-box {
+            width: 100%;
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .login-icon {
+                    width: 40px;
+                }
+                input {
+                    color: white;
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    margin-bottom: 10px;
+                    font-size: 15px;
+                    &::placeholder {
+                        color: white;
+                        text-align: center;
+                        margin-right: 30px;
+                    }
+                }
+                margin-bottom: 25px;
+                border-bottom: 2px solid white;
+            }
+        }
+
+        .login-btn {
+            color: white;
+            border: none;
+            background-color: rgba($color: black, $alpha: 0.6);
+            font-size: 20px;
+            width: 100%;
+            height: 50px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        p {
+            margin-bottom: 100px;
+        }
+        .login-sign-up {
+            border: none;
+            background: transparent;
+            color: white;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}
