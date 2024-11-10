@@ -6,7 +6,10 @@ const MyInfoPage = () => {
         <div className="my-info-page-container">
             <div className="my-info-page-wrap">
                 <h1>내 정보 수정</h1>
-                <img className="my-info-page-profile-img" src={require("../../../assert/user-icon.png")}></img>
+                <img
+                    className="my-info-page-profile-img"
+                    src={require("../../../assert/user-icon.png")}
+                ></img>
                 <div>
                     <div className="my-info-page-name">닉네임</div>
                     <input type="text" placeholder="먹자" />
