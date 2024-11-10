@@ -10,7 +10,7 @@ const Myinfo = () => {
                 <div className="my-Info-box">
                     <img
                         className="my-Info-profile"
-                        src="../../assert/user-icon.png"
+                        src={require("../../assert/user-icon.png")}
                     ></img>
                     <div className="my-Info-box-wrap">
                         <p>냠냠</p>
