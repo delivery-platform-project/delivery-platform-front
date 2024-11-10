@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Join.scss";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, FaSign, FaAddressBook, FaRegAddressBook } from "react-icons/fa";
 import kakaoImage from "../../assert/kakao.png";
 import naverImage from "../../assert/naver.png";
 import { Link, useNavigate } from "react-router-dom";
 import DaumPost from "../../components/Join/DaumPost";
 import axios from "axios";
 import { API_BASE_URL as BASE, USER } from "../../constants/host";
+import { PiUserListFill } from "react-icons/pi";
+import { IoIosPhonePortrait } from "react-icons/io";
 
 function Register() {
     const navigate = useNavigate();
@@ -136,20 +138,20 @@ function Register() {
     };
 
     const nameHandler = (e) => {
-        const regExp = /^[가-힣a-zA-Z0-9]{4,}$/;
+        const regExp = /^[가-힣a-zA-Z0-9]{2,}$/;
         let msg, flag;
         const inputVal = e.target.value;
 
         if (!inputVal) {
             msg = "이름을 입력하세요.";
         } else if (!regExp.test(inputVal)) {
-            msg = "4글자 이상의 영문, 숫자, 한글만 입력 가능합니다.";
+            msg = "2글자 이상의 입력 가능합니다.";
         } else {
             msg = "사용 가능한 이름입니다.";
             flag = true;
         }
         saveInputState({
-            key: "name",
+            key: "username",
             inputVal,
             msg,
             flag,
@@ -187,14 +189,14 @@ function Register() {
         if (!inputVal) {
             msg = "휴대폰 번호를 입력하세요.";
         } else if (!regExp.test(inputVal)) {
-            msg = "올바른 휴대폰 번호 형식이 아닙니다. (010-1234-5678)";
+            msg = "ex (010-1234-5678)";
         } else {
             msg = "사용 가능한 휴대폰 번호입니다.";
             flag = true;
         }
 
         saveInputState({
-            key: "phone",
+            key: "phoneNum",
             inputVal,
             msg,
             flag,
@@ -321,18 +323,18 @@ function Register() {
                             placeholder="Name"
                             required
                             onChange={nameHandler}
-                            minLength={4}
+                            minLength={2}
                             maxLength={12}
                         />
-                        <FaUser className="icon" />
+                        <PiUserListFill className="icon" />
                         <span
                             style={
-                                correct.name
+                                correct.username
                                     ? { color: "green" }
                                     : { color: "red" }
                             }
                         >
-                            {message.name}
+                            {message.username}
                         </span>
                     </div>
 
@@ -344,7 +346,7 @@ function Register() {
                             value={userValue.streetAddress}
                             readOnly
                         />
-                        <FaUser className="icon" />
+                        <FaAddressBook className="icon" />
                         <div className="daum-post-btn">
                             <DaumPost setAddress={setAddress} />
                         </div>
@@ -357,7 +359,7 @@ function Register() {
                             onChange={(e) => setDetailAddress(e.target.value)}
                             value={userValue.detailAddress}
                         />
-                        <FaUser className="icon" />
+                        <FaRegAddressBook className="icon" />
                     </div>
                     <div className="input-box">
                         <input
@@ -367,7 +369,7 @@ function Register() {
                             onChange={phoneHandler}
                             maxLength={13}
                         />
-                        <FaLock className="icon" />
+                        <IoIosPhonePortrait className="icon" />
                         <span
                             style={
                                 correct.phoneNum
@@ -385,7 +387,7 @@ function Register() {
                             }`}
                             onClick={() => handleRoleClick("ORGANIZER")}
                         >
-                            주최자
+                            사장님
                         </div>
                         <div
                             className={`role-button ${
