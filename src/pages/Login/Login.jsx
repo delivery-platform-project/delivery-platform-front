@@ -84,7 +84,7 @@ function Login() {
                         로그인
                     </button>
                     <div className="register-link">
-                        <Link to="/join" className="register">
+                        <Link to="/register" className="register">
                             회원가입
                         </Link>
                     </div>
