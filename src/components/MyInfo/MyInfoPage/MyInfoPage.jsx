@@ -1,7 +1,21 @@
 import React from "react";
 import "./MyInfoPage.scss";
+import { useNavigate } from "react-router-dom";
 
 const MyInfoPage = () => {
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        // 로컬 스토리지에서 토큰을 제거
+        localStorage.removeItem("ACCESS_TOKEN");
+        localStorage.removeItem("LOGIN_USEREMAIL");
+        localStorage.removeItem("USER_GRADE");
+        localStorage.removeItem("USER_ID"); 
+        localStorage.removeItem("USER_PHONE");
+        localStorage.removeItem("LOGIN_USERNAME");
+        localStorage.removeItem("TanstackQueryDevtools.open");
+        navigate("/login"); 
+    };
+
     return (
         <div className="my-info-page-container">
             <div className="my-info-page-wrap">
@@ -32,7 +46,7 @@ const MyInfoPage = () => {
                 </div>
                 <button className="my-info-page-btn">수정하기</button>
                 <div className="my-info-page-box-btn">
-                    <div className="my-info-page-logout">로그아웃</div>
+                    <div className="my-info-page-logout" onClick={handleLogout}>로그아웃</div>
                     <div className="my-info-page-delete">회원탈퇴</div>
                 </div>
             </div>

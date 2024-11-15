@@ -117,7 +117,9 @@ function Register() {
         let flag = false;
         try {
             const res = await axios.get(
-                `${API_BASE_URL}/emailCheck?email=${inputVal}`
+                `${API_BASE_URL}/users/email/check`, {
+                    params: { email: inputVal },
+                }
             );
             if (res.status === 200) {
                 if (res.data) {

@@ -20,17 +20,32 @@ function Login() {
         e.preventDefault();
         console.log(userValue.email, userValue.password);
         axios
-            .post(`${API_BASE_URL}/signin`, userValue)
+        .post(`${API_BASE_URL}/signin`, userValue, {
+            headers: {
+                'Content-Type': 'application/json', // Ensure content type is set to JSON
+            },
+        })
             .then((res) => {
                 console.log(res.data);
                 setLoginUserInfo(res.data);
                 navigate("/");
             })
             .catch((error) => {
-                console.error("로그인 실패:", error);
-                alert("🤔 이메일 또는 비밀번호를 확인해주세요");
+                if (error.response) {
+                    // 서버에서 응답이 왔을 때 (status code 4xx, 5xx)
+                    console.error("서버 응답 에러:", error.response);
+                    alert("🤔 이메일 또는 비밀번호를 확인해주세요");
+                } else if (error.request) {
+                    // 요청이 서버에 도달했으나 응답이 없을 때
+                    console.error("서버 응답 없음:", error.request);
+                    alert("서버 응답이 없습니다. 나중에 다시 시도해주세요.");
+                } else {
+                    // 그 외의 에러
+                    console.error("로그인 중 에러 발생:", error.message);
+                    alert("로그인 중 오류가 발생했습니다.");
+                }
             });
-    };
+        };
 
     const setEmail = (e) => {
         setUserValue({
