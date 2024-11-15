@@ -18,7 +18,7 @@ function Register() {
     const [userValue, setUserValue] = useState({
         email: "",
         password: "",
-        username: "",
+        userName: "",
         phoneNum: "",
         streetAddress: "",
         detailAddress: "",
@@ -28,7 +28,7 @@ function Register() {
     const [message, setMessage] = useState({
         email: "",
         password: "",
-        username: "",
+        userName: "",
         phoneNum: "",
         streetAddress: "",
         detailAddress: "",
@@ -37,7 +37,7 @@ function Register() {
     const [correct, setCorrect] = useState({
         email: false,
         password: false,
-        username: false,
+        userName: false,
         phoneNum: false,
         streetAddress: false,
         detailAddress: false,
@@ -153,7 +153,7 @@ function Register() {
             flag = true;
         }
         saveInputState({
-            key: "username",
+            key: "userName",
             inputVal,
             msg,
             flag,
@@ -331,12 +331,12 @@ function Register() {
                         <PiUserListFill className="icon" />
                         <span
                             style={
-                                correct.username
+                                correct.userName
                                     ? { color: "green" }
                                     : { color: "red" }
                             }
                         >
-                            {message.username}
+                            {message.userName}
                         </span>
                     </div>
 

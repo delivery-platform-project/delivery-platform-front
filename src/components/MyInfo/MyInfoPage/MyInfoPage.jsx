@@ -6,13 +6,13 @@ const MyInfoPage = () => {
     const navigate = useNavigate();
     const handleLogout = () => {
         // 로컬 스토리지에서 토큰을 제거
-        localStorage.removeItem("ACCESS_TOKEN");
-        localStorage.removeItem("LOGIN_USEREMAIL");
-        localStorage.removeItem("USER_GRADE");
-        localStorage.removeItem("USER_ID"); 
-        localStorage.removeItem("USER_PHONE");
-        localStorage.removeItem("LOGIN_USERNAME");
-        localStorage.removeItem("TanstackQueryDevtools.open");
+        // localStorage.removeItem("ACCESS_TOKEN");
+        // localStorage.removeItem("LOGIN_USEREMAIL");
+        // localStorage.removeItem("USER_GRADE");
+        // localStorage.removeItem("USER_ID"); 
+        // localStorage.removeItem("USER_PHONE");
+        // localStorage.removeItem("LOGIN_USERNAME");
+        // localStorage.removeItem("TanstackQueryDevtools.open");
         navigate("/login"); 
     };
 

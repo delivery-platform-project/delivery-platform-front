@@ -20,13 +20,12 @@ function Login() {
         e.preventDefault();
         console.log(userValue.email, userValue.password);
         axios
-        .post(`${API_BASE_URL}/signin`, userValue, {
-            headers: {
-                'Content-Type': 'application/json', // Ensure content type is set to JSON
-            },
-        })
+            .post(`${API_BASE_URL}/signin`, userValue,)
             .then((res) => {
-                console.log(res.data);
+                console.log("응답:", res); // 응답 전체 확인
+                console.log("헤더:", res.headers['authorization']);
+                console.log("사용자 이름:", res.data.username);
+
                 setLoginUserInfo(res.data);
                 navigate("/");
             })
@@ -45,7 +44,7 @@ function Login() {
                     alert("로그인 중 오류가 발생했습니다.");
                 }
             });
-        };
+    };
 
     const setEmail = (e) => {
         setUserValue({

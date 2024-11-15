@@ -8,18 +8,21 @@ import Navbar from "../common/Navbar/Navbar";
 import BookMark from "../pages/BookMark/BookMark";
 import Myinfo from "../pages/MyInfo/Myinfo";
 import Order from "../pages/Order/Order";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = () => {
     return (
         <div>
             <Routes>
-                <Route path="/" element={<Main />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Join />} />
-                <Route path="/shop/:id" element={<Shop />} />
-                <Route path="/bookmark" element={<BookMark />} />
-                <Route path="/myInfo" element={<Myinfo />} />
-                <Route path="/order" element={<Order />} />
+                <Route element={<PrivateRoute />}>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/shop/:id" element={<Shop />} />
+                    <Route path="/bookmark" element={<BookMark />} />
+                    <Route path="/myInfo" element={<Myinfo />} />
+                    <Route path="/order" element={<Order />} />
+                </Route>
             </Routes>
             <Navbar />
         </div>
